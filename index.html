@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .area{
+            display: flex;
+            width: 100vw;
+            height: 90vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            width: 350px;
+            height: 200px;
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .star{
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .one{
+            color: red;
+        }
+         .two{
+            color: orange;
+        }
+         .three{
+            color: orange;
+        }
+         .four{
+            color: rgb(162, 162, 10);
+        }
+         .five{
+            color: green;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="area">
+        <div class="main">
+            <h1>Star Rating</h1>
+            <span class="star" onclick="star(1)"><i class="fa-solid fa-star"></i></span>
+            <span class="star" onclick="star(2)"><i class="fa-solid fa-star"></i></span>
+            <span class="star" onclick="star(3)"><i class="fa-solid fa-star"></i></span>
+            <span class="star" onclick="star(4)"><i class="fa-solid fa-star"></i></span>
+            <span class="star" onclick="star(5)"><i class="fa-solid fa-star"></i></span>
+            <h2 id="res">Rating is : 0/5</h2>
+        </div>
+    </div>
+
+
+    <script>
+        let stars = document.getElementsByClassName('star');
+        let res = document.getElementById('res');
+
+        function star(n){
+            remove();
+            for(let i=0; i<n; i++){
+                if(n==1){
+                    cln = "one";
+                }else if(n == 2){
+                    cln = "two";
+                }else if(n == 3){
+                    cln = "three";
+                }else if(n == 4){
+                    cln = "four";
+                }else if( n == 5){
+                    cln = "five";
+                }
+                stars[i].className = 'star ' + cln;
+
+            }
+            res.innerText = "Rating is " + n + "/5";
+        }
+
+        function remove(){
+            for(let j=0; j<5; j++ ){
+                stars[j].className = 'star';
+            }
+        }
+
+    </script>
+
+</body>
+</html>
